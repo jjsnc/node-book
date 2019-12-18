@@ -1,0 +1,22 @@
+{
+  "name": "book",
+  "version": "1.0.0",
+  "description": "node koa app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjsnc/node-book.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjsnc/node-book/issues"
+  },
+  "homepage": "https://github.com/jjsnc/node-book#readme",
+  "dependencies": {
+    "koa": "^2.11.0"
+  }
+}
