@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jjsnc/node-book#readme",
   "dependencies": {
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0"
   }
 }
