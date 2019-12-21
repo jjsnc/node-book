@@ -1,11 +1,21 @@
 const Koa = require('koa')
 
+const Router = require('koa-router')
+
 const app = new Koa()
 
 var requireDirectory = require('require-directory');
 
-const modules = requireDirectory(module, "./api");
-// snip
+requireDirectory(module, "./api",{
+    visit: whenLoadModule
+});  
+
+function whenLoadModule(obj){
+    if(obj instanceof Router){
+       app.use(obj.routes())
+    }
+}
+
 
 
 /*
@@ -29,16 +39,12 @@ const modules = requireDirectory(module, "./api");
 */
 
 
-
-
-
 // app.use(async (ctx, next)=> {
 //     if(ctx.path==="/classic/latest" && ctx.method==="GET"){
 //         ctx.body = {key:'666'}
 //     }
 // })
 
-const Router = require('koa-router')
 
 
 
@@ -48,12 +54,13 @@ const Router = require('koa-router')
 //     ctx.body = { key: 'book' }
 // });
 
-const book = require('./api/v1/book')
-const classic = require('./api/v1/classic')
+// const book = require('./api/v1/book')
 
+// const classic = require('./api/v1/classic')
 
-app.use(book.routes())
-app.use(classic.routes())
+// app.use(book.routes())
+
+// app.use(classic.routes())
 
 app.listen(3000)
 
