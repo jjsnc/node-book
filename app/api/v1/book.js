@@ -3,16 +3,20 @@ const Router = require('koa-router')
 const router = new Router();
 
 router.post('/v1/:id/book/latest', async (ctx, next) => {
-   const path = ctx.params
-   const query = ctx.request.query
-   const headers = ctx.request.headers
-   const body = ctx.request.body;
-   console.log(path)
-   console.log(query)
-   console.log(headers)
-   console.log(body)
+  const path = ctx.params
+  const query = ctx.request.query
+  const headers = ctx.request.headers
+  const body = ctx.request.body;
+  console.log(path)
+  console.log(query)
+  console.log(headers)
+  console.log(body)
   ctx.body = { key: 'book' }
-  throw new Error('API Exceitoon')
+  const error = new Error('API Exceitoon')
+  error.error_code = 10001
+  error.status = 400
+  error.request_url = ctx.method + ctx.path
+  throw error
 });
 
 
