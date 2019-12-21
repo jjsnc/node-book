@@ -1,26 +1,31 @@
-function func1() {
+async function func1() {
+    await func2()
+}
+async function func2() {
     try {
-        func2()
+        await func3()
     } catch (error) {
-
+        console.log('11')
     }
 }
-function func2() {
-    try {
-        func3()
-    } catch (error) {
-
-    }
-}
-function func3() {
-    try {
-        1 / a
-    } catch (error) {
-        throw error
-    }
-    return 'success'
+async function func3() {
+    return Promise((resolve, reject) => {
+        setTimeout(() => {
+            throw new Error('error')
+            reject('error')
+        }, 1000)
+    })
 
 }
+func1()
+/*
+ *  全局异常处理
+ */
+
+/*
+ * try catch  只能捕获同步代码的异常
+*/
+
 
 /*
  * 没有发生异常
