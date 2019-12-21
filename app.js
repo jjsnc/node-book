@@ -1,6 +1,11 @@
 const Koa = require('koa')
+
 const app = new Koa()
 
+var requireDirectory = require('require-directory');
+
+const modules = requireDirectory(module, "./api");
+// snip
 
 
 /*
@@ -33,12 +38,29 @@ const app = new Koa()
 //     }
 // })
 
+const Router = require('koa-router')
+
+
+
+// const router = new Router();
+
+// router.get('/v1/book/latest', async (ctx, next) => {
+//     ctx.body = { key: 'book' }
+// });
+
 const book = require('./api/v1/book')
 const classic = require('./api/v1/classic')
 
-app.use(router.routes())
-module.exports = {
-    router:router
-}
+
+app.use(book.routes())
+app.use(classic.routes())
 
 app.listen(3000)
+
+
+
+
+
+
+
+
