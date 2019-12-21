@@ -39,29 +39,6 @@ function whenLoadModule(obj){
 */
 
 
-// app.use(async (ctx, next)=> {
-//     if(ctx.path==="/classic/latest" && ctx.method==="GET"){
-//         ctx.body = {key:'666'}
-//     }
-// })
-
-
-
-
-// const router = new Router();
-
-// router.get('/v1/book/latest', async (ctx, next) => {
-//     ctx.body = { key: 'book' }
-// });
-
-// const book = require('./api/v1/book')
-
-// const classic = require('./api/v1/classic')
-
-// app.use(book.routes())
-
-// app.use(classic.routes())
-
 app.listen(3000)
 
 
