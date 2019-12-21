@@ -7,3 +7,4 @@ router.get('/v1/classic/latest', (ctx, next) => {
 });
 
 module.exports = router
+

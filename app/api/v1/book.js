@@ -11,7 +11,8 @@ router.post('/v1/:id/book/latest', async (ctx, next) => {
    console.log(query)
    console.log(headers)
    console.log(body)
- ctx.body = { key: 'book' }
+  ctx.body = { key: 'book' }
+  throw new Error('API Exceitoon')
 });
 
 
@@ -23,4 +24,10 @@ module.exports = router
  * header
  * body
  * url
+*/
+
+/*
+ * 处理异常
+ * 全局监听到异常
+ * 根据异常输出一段有意义的提示信息
 */
