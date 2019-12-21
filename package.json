@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jjsnc/node-book#readme",
   "dependencies": {
     "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "require-directory": "^2.1.1"
   }
