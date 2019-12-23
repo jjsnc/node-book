@@ -12,12 +12,12 @@ router.post('/v1/:id/book/latest', async (ctx, next) => {
   const headers = ctx.request.headers
   const body = ctx.request.body;
   const v = await new PositiveIntegerValidator().validate(ctx)
-  console.log(v, 'vvvv')
+  console.log(v.get('path.id'), 'vvvv')
   // console.log(path)
   // console.log(query)
   // console.log(headers)
   // console.log(body)
-  // ctx.body = { key: 'book' }
+  ctx.body = { key: 'book' }
   // const error = new Error('API Exceitoon')
   // error.error_code = 10001
   // error.status = 400
