@@ -4,7 +4,7 @@ const router = new Router();
 
 const {
   PositiveIntegerValidator,
-} = require('../../../validators/validator.js')
+} = require('../../validators/validator.js')
 
 router.post('/v1/:id/book/latest', async (ctx, next) => {
   const path = ctx.params
@@ -13,16 +13,16 @@ router.post('/v1/:id/book/latest', async (ctx, next) => {
   const body = ctx.request.body;
   const v = await new PositiveIntegerValidator().validate(ctx)
   console.log(v, 'vvvv')
-  console.log(path)
-  console.log(query)
-  console.log(headers)
-  console.log(body)
-  ctx.body = { key: 'book' }
-  const error = new Error('API Exceitoon')
-  error.error_code = 10001
-  error.status = 400
-  error.request_url = ctx.method + ctx.path
-  throw error
+  // console.log(path)
+  // console.log(query)
+  // console.log(headers)
+  // console.log(body)
+  // ctx.body = { key: 'book' }
+  // const error = new Error('API Exceitoon')
+  // error.error_code = 10001
+  // error.status = 400
+  // error.request_url = ctx.method + ctx.path
+  // throw error
 });
 
 

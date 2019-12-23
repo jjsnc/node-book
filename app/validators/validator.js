@@ -6,10 +6,10 @@ const {
 // const {
 //     User
 // } = require('../models/user')
-// const {
-//     LoginType,
-//     ArtType
-// } = require('../lib/enum')
+const {
+    LoginType,
+    ArtType
+} = require('../lib/enum')
 
 class PositiveIntegerValidator extends LinValidator {
     constructor() {
