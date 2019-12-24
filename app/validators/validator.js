@@ -3,9 +3,9 @@ const {
     Rule
 } = require('../../core/lin-validator-v2')
 
-// const {
-//     User
-// } = require('../models/user')
+const {
+    User
+} = require('../models/user')
 const {
     LoginType,
     ArtType
@@ -211,7 +211,7 @@ class AddShortCommentValidator extends PositiveIntegerValidator {
 
 module.exports = {
     PositiveIntegerValidator,
-    // RegisterValidator,
+    RegisterValidator,
     // TokenValidator,
     // NotEmptyValidator,
     // LikeValidator,
