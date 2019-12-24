@@ -212,7 +212,7 @@ class AddShortCommentValidator extends PositiveIntegerValidator {
 module.exports = {
     PositiveIntegerValidator,
     RegisterValidator,
-    // TokenValidator,
+    TokenValidator,
     // NotEmptyValidator,
     // LikeValidator,
     // ClassicValidator,
