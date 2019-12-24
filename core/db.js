@@ -17,12 +17,12 @@ const sequelize = new Sequelize(dbName,user,password,{
     timezone: '+08:00',
     define:{
         //create_time  update_time delete_time
-        // timestamps:true,
-        // paranoid:true,
-        // createdAt:'created_at',
-        // updatedAt:'updated_at',
-        // deletedAt:'deleted_at',
-        // underscored:true,
+        timestamps: true,
+        paranoid:true,
+        createdAt:'created_at',
+        updatedAt:'updated_at',
+        deletedAt:'deleted_at',
+        underscored:true, // 数据库命名规范需要用下划线
         // freezeTableName:true,
         // scopes:{
         //     bh:{
@@ -35,7 +35,7 @@ const sequelize = new Sequelize(dbName,user,password,{
 })
 
 sequelize.sync({
-    force:false
+    force:false //这行代码谨慎设置
 })
 
 Model.prototype.toJSON= function(){

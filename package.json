@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jjsnc/node-book#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
