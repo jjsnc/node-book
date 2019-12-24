@@ -65,6 +65,12 @@ User.init({
     password: {
         //扩展 设计模式 观察者模式
         //ES6 Reflect Vue3.0 
+        /*
+         *  存入数据库密码不能是明文 
+         *  而且相同的密码不能相同的密文 
+         *  彩虹攻击
+        */
+        
         type: Sequelize.STRING,
         set(val) {
             const salt = bcrypt.genSaltSync(10)
