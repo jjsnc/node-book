@@ -23,6 +23,9 @@ router.post('/v1/:id/book/latest', async (ctx, next) => {
   // error.status = 400
   // error.request_url = ctx.method + ctx.path
   // throw error
+  /*
+   * sequelize 连接数据库 配置一些数据库参数 
+  */   
 });
 
 
