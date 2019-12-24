@@ -6,6 +6,7 @@ class InitManager {
         InitManager.app = app
         InitManager.initLoadRouters()
         InitManager.loadConfig()
+        InitManager.loadHttpException()
     }
 
     static loadConfig(path = '') {
