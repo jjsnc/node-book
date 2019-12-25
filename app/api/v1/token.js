@@ -20,6 +20,21 @@ const router = new Router({
 })
 
 router.post('/', async (ctx) => {
+    /*
+     * 业务逻辑
+     * 1: 在API 接口编写
+     * 2: Model 分层
+     * 3: MVC  业务逻辑写在M里面
+    */
+
+
+    /*
+     * 业务分层 Model  Service
+     *  Thinkphp Model service Loginc
+     *  java Model DTO
+     * 
+    */
+
     const v = await new TokenValidator().validate(ctx)
     let token;
     switch (v.get('body.type')) {
