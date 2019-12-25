@@ -18,34 +18,31 @@ class Auth {
              * HTTP 规定 身份验证机制 HttpBasicAuth 
             */
             const userToken = basicAuth(ctx.req)
-            ctx.body = userToken
-            // let errMsg = 'token不合法'
+            let errMsg = 'token不合法'
 
-            // if (!userToken || !userToken.name) {
-            //     throw new global.errs.Forbbiden(errMsg)
-            // }
-            // try {
-            //     var decode = jwt.verify(userToken.name, 
-            //         global.config.security.secretKey)
-            // } catch (error) {
-            //     if (error.name == 'TokenExpiredError'){
-            //         errMsg = 'token已过期'
-            //     }
-            //     throw new global.errs.Forbbiden(errMsg)
-            // }
+            if (!userToken || !userToken.name) {
+                throw new global.errs.Forbbiden(errMsg)
+            }
+            try {
+                var decode = jwt.verify(userToken.name, global.config.security.secretKey)
+            } catch (error) {
+                if (error.name == 'TokenExpiredError'){
+                    errMsg = 'token已过期'
+                }
+                throw new global.errs.Forbbiden(errMsg)
+            }
 
             // if(decode.scope < this.level){
             //     errMsg = '权限不足'
             //     throw new global.errs.Forbbiden(errMsg)
             // }
-
             // // uid,scope
-            // ctx.auth = {
-            //     uid:decode.uid,
-            //     scope:decode.scope
-            // }
+            ctx.auth = {
+                uid:decode.uid,
+                scope:decode.scope
+            }
 
-            // await next()
+            await next()
         }
     }
 

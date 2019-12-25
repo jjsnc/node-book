@@ -18,7 +18,7 @@ const router = new Router({
 
 router.get('/latest', new Auth().m, async (ctx, next) => {
     console.log('66666666666')
-    // // ctx.body = { key: 'classic' }
+    ctx.body = ctx.auth.uid
 });
 
 
