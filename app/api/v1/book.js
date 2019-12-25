@@ -1,12 +1,15 @@
 const Router = require('koa-router')
 
-const router = new Router();
+const router = new Router({
+  prefix: '/v1/book'
+})
+
 
 const {
   PositiveIntegerValidator,
 } = require('../../validators/validator.js')
 
-router.post('/v1/:id/book/latest', async (ctx, next) => {
+router.post('/latest', async (ctx, next) => {
   const path = ctx.params
   const query = ctx.request.query
   const headers = ctx.request.headers
