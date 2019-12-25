@@ -32,10 +32,10 @@ class Auth {
                 throw new global.errs.Forbbiden(errMsg)
             }
 
-            // if(decode.scope < this.level){
-            //     errMsg = '权限不足'
-            //     throw new global.errs.Forbbiden(errMsg)
-            // }
+            if(decode.scope < this.level){
+                errMsg = '权限不足'
+                throw new global.errs.Forbbiden(errMsg)
+            }
             // // uid,scope
             ctx.auth = {
                 uid:decode.uid,
