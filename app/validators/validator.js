@@ -213,7 +213,7 @@ module.exports = {
     PositiveIntegerValidator,
     RegisterValidator,
     TokenValidator,
-    // NotEmptyValidator,
+    NotEmptyValidator,
     // LikeValidator,
     // ClassicValidator,
     // SearchValidator,
