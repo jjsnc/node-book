@@ -12,6 +12,9 @@ const {
     Auth
 } = require('../../../middlewares/auth')
 
+const {
+    Art
+} = require('../../models/art')
 
 const router = new Router({
     prefix: '/v1/classic'

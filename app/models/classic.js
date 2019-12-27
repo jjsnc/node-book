@@ -38,8 +38,10 @@ class Movie extends Model {
 
 }
 
-class Sentence extends Model 
-}
+class Sentence extends Model{
+    
+} 
+
 
 class Music extends Model {
 
