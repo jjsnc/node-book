@@ -88,35 +88,36 @@ class Art {
     }
 
 
-    static async getData(art_id, type, useScope = true) {
-
+    static async getData(art_id, type ) {
         let art = null
         const finder = {
             where: {
                 id: art_id
             }
         }
-        const scope = useScope ? 'bh' : null
+        // const scope = useScope ? 'bh' : null
+
         switch (type) {
+            
             case 100:
-                art = await Movie.scope(scope).findOne(finder)
+                art = await Movie.findOne(finder)
                 break
             case 200:
-                art = await Music.scope(scope).findOne(finder)
+                art = await Music.findOne(finder)
                 break
             case 300:
-                art = await Sentence.scope(scope).findOne(finder)
+                art = await Sentence.findOne(finder)
                 break
             case 400:
-                const {
-                    Book
-                } = require('./book')
-                art = await Book.scope(scope).findOne(finder)
-                if(!art){
-                    art = await Book.create({
-                        id:art_id
-                    })
-                }
+                // const {
+                //     Book
+                // } = require('./book')
+                // art = await Book.scope(scope).findOne(finder)
+                // if(!art){
+                //     art = await Book.create({
+                //         id:art_id
+                //     })
+                // }
                 break
             default:
                 break

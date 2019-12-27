@@ -35,9 +35,15 @@ router.get('/latest', new Auth().m, async (ctx, next) => {
             ['index', 'DESC']
         ]
     })
-    console.log(flow)
-    console.log('66666666666')
-    ctx.body = flow
+    const art = await Art.getData(flow.art_id, flow.type)
+    // const i = art.get('image')
+    // const t = art.image
+    // const s = art.getDataValue('image')
+    // const likeLatest = await Favor.userLikeIt(
+    //     flow.art_id, flow.type, ctx.auth.uid)
+    art.setDataValue('index', flow.index)
+    // art.setDataValue('like_status', likeLatest)
+    ctx.body = art
 });
 
 /*
