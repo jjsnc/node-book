@@ -1,6 +1,9 @@
 const Router = require('koa-router')
 
 const {
+    Flow
+} = require('../../models/flow')
+const {
     PositiveIntegerValidator,
     ClassicValidator
 } = require('../../validators/validator')
@@ -24,8 +27,14 @@ router.get('/latest', new Auth().m, async (ctx, next) => {
     *  分级 scope
     *   
     */
+    const flow = await Flow.findOne({
+        order: [
+            ['index', 'DESC']
+        ]
+    })
+    console.log(flow)
     console.log('66666666666')
-    ctx.body = ctx.auth.uid
+    ctx.body = flow
 });
 
 /*
