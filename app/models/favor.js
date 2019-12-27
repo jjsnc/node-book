@@ -12,6 +12,12 @@ const {
 
 class Favor extends Model {
     // 业务表
+    /*
+     * 添加记录
+     * ckassuc fav_numbs
+     * 数据库事务 保持数据一致性 
+     * ACID 原子性 一致性 隔离性 持久性
+    */
     static async  (art_id, type, uid) {
         const favor = await Favor.findOne({
             where: {
