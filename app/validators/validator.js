@@ -214,8 +214,8 @@ module.exports = {
     RegisterValidator,
     TokenValidator,
     NotEmptyValidator,
-    // LikeValidator,
-    // ClassicValidator,
-    // SearchValidator,
-    // AddShortCommentValidator
+    LikeValidator,
+    ClassicValidator,
+    SearchValidator,
+    AddShortCommentValidator
 }
