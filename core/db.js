@@ -23,14 +23,14 @@ const sequelize = new Sequelize(dbName,user,password,{
         updatedAt:'updated_at',
         deletedAt:'deleted_at',
         underscored:true, // 数据库命名规范需要用下划线
-        // freezeTableName:true,
-        // scopes:{
-        //     bh:{
-        //         attributes:{
-        //             exclude:['updated_at','deleted_at','created_at']
-        //         }
-        //     }
-        // }
+        freezeTableName:true,
+        scopes:{
+            bh:{
+                attributes:{
+                    exclude:['updated_at','deleted_at','created_at']
+                }
+            }
+        }
     }
 })
 
