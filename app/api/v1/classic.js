@@ -2,7 +2,11 @@ const Router = require('koa-router')
 
 const {
     Flow
-} = require('../../models/flow')
+} = require('@models/flow')
+const {
+    Favor
+} = require('@models/favor')
+
 const {
     PositiveIntegerValidator,
     ClassicValidator
@@ -39,10 +43,9 @@ router.get('/latest', new Auth().m, async (ctx, next) => {
     // const i = art.get('image')
     // const t = art.image
     // const s = art.getDataValue('image')
-    // const likeLatest = await Favor.userLikeIt(
-    //     flow.art_id, flow.type, ctx.auth.uid)
+    const likeLatest = await Favor.userLikeIt(flow.art_id, flow.type, ctx.auth.uid)
     art.setDataValue('index', flow.index)
-    // art.setDataValue('like_status', likeLatest)
+    art.setDataValue('like_status', likeLatest)
     ctx.body = art
 });
 
