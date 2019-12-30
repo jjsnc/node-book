@@ -49,6 +49,54 @@ router.get('/latest', new Auth().m, async (ctx, next) => {
     ctx.body = art
 });
 
+
+/* 下一期 */
+
+router.get('/:index/next', new Auth().m, async (ctx) => {
+    const v = await new PositiveIntegerValidator().validate(ctx, {
+        id: 'index'
+    })
+    const index = v.get('path.index')
+    const flow = await Flow.findOne({
+        where: {
+            index: index + 1
+        }
+    })
+    if (!flow) {
+        throw new global.errs.NotFound()
+    }
+    const art = await Art.getData(flow.art_id, flow.type)
+    const likeNext = await Favor.userLikeIt(
+        flow.art_id, flow.type, ctx.auth.uid)
+    art.setDataValue('index', flow.index)
+    art.setDataValue('like_status', likeNext)
+    // art.exclude = ['index','like_status']
+    ctx.body = art
+})
+
+/* 上一期 */
+
+router.get('/:index/previous', new Auth().m, async (ctx) => {
+    const v = await new PositiveIntegerValidator().validate(ctx, {
+        id: 'index'
+    })
+    const index = v.get('path.index')
+    const flow = await Flow.findOne({
+        where: {
+            index: index - 1
+        }
+    })
+    if (!flow) {
+        throw new global.errs.NotFound()
+    }
+    const art = await Art.getData(flow.art_id, flow.type)
+    const likePrevious = await Favor.userLikeIt(
+        flow.art_id, flow.type, ctx.auth.uid)
+    art.setDataValue('index', flow.index)
+    art.setDataValue('like_status', likePrevious)
+    ctx.body = art
+})
+
 /*
 *  model code first 
 *  创建数据库的时候思考数据表  model
