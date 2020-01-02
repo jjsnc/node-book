@@ -124,6 +124,19 @@ router.get('/:index/previous', new Auth().m, async (ctx) => {
  * 不知道怎么设计数据库  感觉
 */
 
+router.get('/:type/:id/favor', new Auth().m, async ctx => {
+    const v = await new ClassicValidator().validate(ctx)
+    const id = v.get('path.id')
+    const type = parseInt(v.get('path.type'))
+
+    const artDetail =await new Art(id,type).getDetail(ctx.auth.uid)
+
+    ctx.body = {
+        fav_nums: artDetail.art.fav_nums,
+        like_status: artDetail.like_status
+    }
+})
+
 
 
 module.exports = router
