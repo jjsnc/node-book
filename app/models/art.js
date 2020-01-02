@@ -43,6 +43,9 @@ class Art {
             200: [],
             300: [],
         }
+        /*
+         * arts 100 循环查询数据 查询数据库次数 不可控
+        */
         for (let artInfo of artInfoList) {
             artInfoObj[artInfo.type].push(artInfo.art_id)
         }

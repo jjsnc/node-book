@@ -137,6 +137,14 @@ router.get('/:type/:id/favor', new Auth().m, async ctx => {
     }
 })
 
+// 获取用户喜欢的所有列表
+
+router.get('/favor', new Auth().m, async ctx => {
+    const uid = ctx.auth.uid
+    ctx.body = await Favor.getMyClassicFavors(uid)
+})
+
+
 
 
 module.exports = router
