@@ -50,7 +50,7 @@ class Art {
             artInfoObj[artInfo.type].push(artInfo.art_id)
         }
         const arts = []
-        for (let key in artInfoObj) {
+        for (let key in artInfoObj) { 
             const ids = artInfoObj[key]
             if (ids.length === 0) {
                 continue
