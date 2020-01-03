@@ -1,5 +1,15 @@
 const Router = require('koa-router')
 
+
+const {
+  HotBook
+} = require('@models/hot-book')
+
+const {
+  Book
+} = require('@models/book')
+
+
 const router = new Router({
   prefix: '/v1/book'
 })
@@ -8,6 +18,24 @@ const router = new Router({
 const {
   PositiveIntegerValidator,
 } = require('../../validators/validator.js')
+
+
+
+router.get('/hot_list', async (ctx, next) => {
+
+  const books = await HotBook.getAll()
+  ctx.body = books
+})
+
+router.get('/:id/detail', async ctx => {
+  const v = await new PositiveIntegerValidator().validate(ctx)
+  const book = new Book()
+  ctx.body = await book.detail(v.get('path.id'))
+})
+
+
+
+
 
 router.post('/latest', async (ctx, next) => {
   const path = ctx.params

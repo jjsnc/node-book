@@ -13,21 +13,6 @@ class HotBook extends Model {
         books.forEach((book) => {
             ids.push(book.id)
         })
-        // 并发 单线程 同时执行
-        // 并发 并行
-        // 高并发
-        // conncurrency
-        // parallelism
-        // python 并行 单线程 Thread
-        // javaScript 并发
-        // 宏任务
-        // 微任务
-        // 多线程 多进程
-        // CPU 密集型 资源密集型
-        // java c# 多线程 线程同步 lock
-
-
-
 
         const favors = await Favor.findAll({
             where: {
@@ -74,3 +59,16 @@ module.exports = {
     HotBook
 }
 // 排序 重要
+
+// 并发 单线程 同时执行
+// 并发 并行
+// 高并发
+// conncurrency
+// parallelism
+// python 并行 单线程 Thread
+// javaScript 并发
+// 宏任务
+// 微任务
+// 多线程 多进程
+// CPU 密集型 资源密集型
+// java c# 多线程 线程同步 lock
