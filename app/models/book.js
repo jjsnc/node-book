@@ -8,16 +8,20 @@ const {
     Model
 } = require('sequelize')
 
-
-
+const {Favor} = require('@models/favor')
 
 class Book extends Model {
+    // constructor(id) {
+    //     super()
+    //     this.id = id
+    // }
+
     async detail(id) {
         const url = util.format(global.config.yushu.detailUrl, id)
         const detail = await axios.get(url)
         return detail.data
     }
-
+    
     static async getMyFavorBookCount(uid) {
         const count = await Favor.count({
             where: {
