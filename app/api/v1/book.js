@@ -32,7 +32,7 @@ router.post('/latest', async (ctx, next) => {
 });
 
 
-module.exports = router
+
 
 /*
  * :id
@@ -47,3 +47,22 @@ module.exports = router
  * 全局监听到异常
  * 根据异常输出一段有意义的提示信息
 */
+
+
+
+/*
+ * 基础数据库服务
+ * 旧岛 API/项目
+ * 公用性 API 公开
+ * 
+ * book 数据库表
+ * 业务 图书业务数据
+ * 
+ * 
+ * 
+ * node.js 中间层
+ * 微服务
+ * 雏形
+*/
+
+module.exports = router
