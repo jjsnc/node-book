@@ -1,6 +1,7 @@
 const Router = require('koa-router')
 
 
+
 const {
   HotBook
 } = require('@models/hot-book')
@@ -10,6 +11,7 @@ const {
 } = require('@models/book')
 
 
+
 const router = new Router({
   prefix: '/v1/book'
 })
@@ -17,6 +19,7 @@ const router = new Router({
 
 const {
   PositiveIntegerValidator,
+  SearchValidator
 } = require('../../validators/validator.js')
 
 
@@ -33,7 +36,12 @@ router.get('/:id/detail', async ctx => {
   ctx.body = await book.detail(v.get('path.id'))
 })
 
-
+router.get('/search', async ctx => {
+  const v = await new SearchValidator().validate(ctx)
+  const result = await Book.searchFromYuShu(
+      v.get('query.q'), v.get('query.start'), v.get('query.count'))
+  ctx.body = result
+})
 
 
 
